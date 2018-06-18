@@ -147,6 +147,11 @@ end
     until over?
       turn
   end
+  if (won?)
+    puts "Congratulations #{winner}!"
+  elsif(draw? == true)
+    puts "Cat's Game!"
+  end
 end
 
 end
