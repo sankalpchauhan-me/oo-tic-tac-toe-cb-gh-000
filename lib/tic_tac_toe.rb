@@ -13,15 +13,15 @@ class TicTacToe
   def initialize(board = nil)
     @board = board || Array.new(9, " ")
   end
- 
+
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
- 
+
   def turn_count
     @board.count{|token| token == "X" || token == "O"}
   end
- 
+
   def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts "-----------"
@@ -34,7 +34,7 @@ class TicTacToe
   num = str.to_i
   num-1
   end
-  
+
   def move(index, value)
     @board[index] = value
   end
@@ -126,27 +126,27 @@ end
 end
 
 #who is the winner
-def winner
-i = 0
-WIN_COMBINATIONS.each{|win_combination|
-  if @board[win_combination[0]] == "X" && @board[win_combination[1]] == "X" && @board[win_combination[2]] == "X"
-    i +=1
-    return "X"
-  elsif @board[win_combination[0]] == "O" && @board[win_combination[1]] == "O" && @board[win_combination[2]] == "O"
-    i +=1
-    return "O"
+  def winner
+  i = 0
+  WIN_COMBINATIONS.each{|win_combination|
+    if @board[win_combination[0]] == "X" && @board[win_combination[1]] == "X" && @board[win_combination[2]] == "X"
+      i +=1
+      return "X"
+    elsif @board[win_combination[0]] == "O" && @board[win_combination[1]] == "O" && @board[win_combination[2]] == "O"
+      i +=1
+      return "O"
+    end
+  }
+  if i == 0
+    return nil
   end
-}
-if i == 0
-  return nil
-end
-end
+  end
 
 #The play method is the main method of the tic tac toe application and is responsible for the game loop.
-def play
-until over?
-  turn
-end
+  def play
+    until over?
+      turn
+  end
 
 
 end
