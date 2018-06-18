@@ -45,7 +45,7 @@ class TicTacToe
   end
   # #valid_move? method here
   def valid_move?(index)
-    if(index.between?(0,8) && !position_taken?(@board,index))
+    if(index.between?(0,8) && !position_taken?(index))
       return true
     else
       return false
@@ -58,8 +58,8 @@ def turn
   val = gets.strip
   index  = input_to_index(val)
 
-  if(valid_move?(@board,index)==true)
-    move(@board, index, current_player(@board))
+  if(valid_move?(index)==true)
+    move(index, current_player)
     display_board
   else
     turn
@@ -109,7 +109,7 @@ end
 
 #Is it a draw?
 def draw?
-if(full?(@board) == true && won?(@board) == false )
+if(full? == true && won? == false )
   return true
 else
   return false
@@ -118,7 +118,7 @@ end
 
 #Is the game over?
 def over?
-if(draw?(@board) || won?(@board))
+if(draw? || won?)
   return true
 else
   return false
